@@ -32,6 +32,7 @@ export const {
     DayModule
 } = database.models
 
+
 export const conn = database
 const verifyConnection = async () => {
     try {

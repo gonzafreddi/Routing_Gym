@@ -1,0 +1,1 @@
+export type gender = 'man' | 'women' | undefined
