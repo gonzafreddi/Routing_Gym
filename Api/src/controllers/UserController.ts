@@ -11,9 +11,20 @@ export const getUserByEmail=async(email:string)=>{
     return findUser
 }
 
+
+export const getAllUser = async()=>{
+    try {
+        const users = await User.findAll()
+        return users
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+
 export const postUser = async function(user:UserInterface){
     try {
-        const { email, name, photo, description, gender, age, height } = user
+        const { email, name, password ,photo, description, gender, age, height } = user
 
         const findUser = await getUserByEmail(email)
         console.log(findUser)
@@ -24,6 +35,7 @@ export const postUser = async function(user:UserInterface){
             where:{email},
             defaults:{
                 name, 
+                password,
                 photo, 
                 description, 
                 gender, 
@@ -33,6 +45,11 @@ export const postUser = async function(user:UserInterface){
         })
         return newUser
     } catch (error) {
-        console.log(error)
-    }   
-}
+        if (error instanceof Error) {
+            return error.message
+        } else {
+            return 'Internal Server Error'
+        }
+    }
+}   
+

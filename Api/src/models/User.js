@@ -1,5 +1,4 @@
 // esModule.js
-
 import { DataTypes, UUIDV4 } from 'sequelize'
 
 // Define el modelo 'User'
@@ -22,6 +21,10 @@ const defineUser = (sequelize) => {
                 isEmail: true
             }
         },
+        password:{
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
         photo: {
             type: DataTypes.STRING,
             allowNull: true
@@ -31,8 +34,11 @@ const defineUser = (sequelize) => {
             allowNull: true
         },
         gender: {
-            type: DataTypes.STRING,
-            allowNull: false
+            type:DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                isIn: [['women', 'man']], // Asegura que solo pueda ser 'women' o 'man'
+            },
         },
         age: {
             type: DataTypes.INTEGER,
