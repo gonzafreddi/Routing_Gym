@@ -43,8 +43,10 @@ const verifyConnection = async () => {
     }
 }
 verifyConnection()
-PersonalTrainer.hasMany(User)
+
+
 User.belongsTo(PersonalTrainer)
+PersonalTrainer.hasMany(User)
 
 PersonalTrainer.hasMany(Routine)
 Routine.belongsTo(PersonalTrainer)

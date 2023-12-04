@@ -11,7 +11,6 @@ export const getUserByEmail=async(email:string)=>{
     return findUser
 }
 
-
 export const getAllUser = async()=>{
     try {
         const users = await User.findAll()
@@ -20,7 +19,6 @@ export const getAllUser = async()=>{
         console.log(error)
     }
 }
-
 
 export const postUser = async function(user:UserInterface){
     try {
@@ -43,6 +41,7 @@ export const postUser = async function(user:UserInterface){
                 height
             }
         })
+        console.log(User)
         return newUser
     } catch (error) {
         if (error instanceof Error) {

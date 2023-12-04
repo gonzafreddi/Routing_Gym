@@ -1,5 +1,6 @@
 
 export interface UserInterface {
+    id: string;
     name:string, 
     password:string
     email:string,
@@ -7,7 +8,8 @@ export interface UserInterface {
     description?:string, 
     gender:'women' | 'man', 
     age:number, 
-    height:number
+    height:number,
+    personalTrainerId: string | null;
 }
 
 export interface PTrainerInterface extends Omit<UserInterface, 'height'> {

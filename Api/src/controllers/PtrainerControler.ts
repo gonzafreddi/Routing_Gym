@@ -25,6 +25,7 @@ export const postPTrainer = async(Ptrainer:PTrainerInterface)=>{
                 certificates 
             }
         })
+        console.log(newPTrainer)
         return newPTrainer
     } catch (error) {
         if (error instanceof Error) {
@@ -37,6 +38,7 @@ export const postPTrainer = async(Ptrainer:PTrainerInterface)=>{
 export const getAllTrainers = async()=>{
     try {
         const users = await PersonalTrainer.findAll()
+        console.log(users)
         return users
     } catch (error) {
         console.log(error)
