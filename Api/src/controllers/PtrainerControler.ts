@@ -2,6 +2,18 @@ import { PersonalTrainer } from '../db'
 import { PTrainerInterface } from '../utils/interfaces'
 import { getUserByEmail } from './UserController'
 
+export const getIdTrainerByEmail = async (email:string): Promise<string | null>=>{
+    const findId = await PersonalTrainer.findOne({
+        where:{
+            email: email
+        }
+    })
+    if (!findId) {
+        return 'entrenador no encontrado'
+    }
+    return findId.id as string
+}
+
 
 
 export const postPTrainer = async(Ptrainer:PTrainerInterface)=>{

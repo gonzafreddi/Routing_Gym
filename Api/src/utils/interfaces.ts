@@ -9,7 +9,7 @@ export interface UserInterface {
     gender:'women' | 'man', 
     age:number, 
     height:number,
-    personalTrainerId?: string | null;
+    PersonalTrainerId?: string | null;
 }
 
 export interface PTrainerInterface extends Omit<UserInterface, 'height'> {

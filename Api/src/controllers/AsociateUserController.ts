@@ -10,7 +10,7 @@ export const AsociateUsersControllers = async (userId: string, trainerId: string
         } else {
             // Asociar el usuario al entrenador personal
             await user.update({
-                personalTrainerId: trainerId
+                PersonalTrainerId: trainerId
             })
             await user.save()
         }

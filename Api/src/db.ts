@@ -52,11 +52,15 @@ Routine.belongsTo(PersonalTrainer)
 User.hasMany(Routine)
 Routine.belongsTo(User)
 
-Routine.hasMany(Week)
-Week.belongsTo(Routine)
 
-Week.hasMany(DayModule)
-DayModule.belongsTo(Week)
+Routine.hasMany(DayModule)
+DayModule.belongsTo(Routine)
+
+// Routine.hasMany(Week)
+// Week.belongsTo(Routine)
+
+// Week.hasMany(DayModule)
+// DayModule.belongsTo(Week)
 
 DayModule.belongsToMany(Exercise, { through: 'Day_Exersice' })
 Exercise.belongsToMany(DayModule, { through: 'Day_Exersice' })

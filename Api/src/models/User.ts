@@ -20,7 +20,7 @@ const defineUser = (sequelize: Sequelize) => {
             allowNull: false,
             unique: true,
             validate: {
-                isEmail: true,
+                isEmail: true, 
             },
         },
         password: {
@@ -50,7 +50,7 @@ const defineUser = (sequelize: Sequelize) => {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
-        personalTrainerId: {
+        PersonalTrainerId: {
             type: DataTypes.UUID,
             allowNull: true,
         },

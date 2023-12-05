@@ -12,6 +12,12 @@ export const getIdByEmail = async (email:string): Promise<string | null>=> {
     }
     return findId.id as string
 }
+
+
+
+
+
+
 export const getUserByEmail=async(email:string)=>{
     const findUser = await User.findOne({
         where:{
