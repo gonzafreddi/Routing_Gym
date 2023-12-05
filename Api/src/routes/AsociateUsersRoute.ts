@@ -1,7 +1,7 @@
 import { Router } from 'express'
-
+import { asociateUsersHandler } from '../handlers/AsociateUsersHandler'
 const asociateRouter = Router()
 
-asociateRouter.post('/:userId/:trainerId')
+asociateRouter.put('/:userEmail/:trainerEmail', asociateUsersHandler)
 
 export default asociateRouter

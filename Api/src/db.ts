@@ -14,8 +14,8 @@ const database = new Sequelize(
         native: false // lets Sequelize know we can use pg-native for ~30% more speed
     }
 )
-defineUser(database)
-definePersonalTrainer(database)
+export const User =defineUser(database)
+export const PersonalTrainer = definePersonalTrainer(database)
 defineRoutine(database)
 defineWeek(database)
 defineMuscle(database)
@@ -23,8 +23,6 @@ defineExercise(database)
 defineDayModule(database)
 
 export const {
-    User,
-    PersonalTrainer,
     Routine,
     Week,
     Muscle,
