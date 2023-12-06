@@ -1,21 +1,14 @@
-import express,  { Router, Request, Response } from 'express'
-import { getUserHandler } from '../handlers/UserHandler'
-
-const router = Router();
+import express,  { Router} from 'express'
+import userRouter from './userRouter'
+import Ptrainer from './Ptrainer'
+import asociateRouter from './AsociateUsersRoute'
+const router = Router()
 
 // Asociar el controlador con el verbo HTTP específico (GET en este caso)
-router.get('/user', (req: Request, res: Response) => {
-  getUserHandler(req, res)
-    .then(() => {
-      // La promesa se resolvió correctamente (puede que no necesites hacer nada aquí)
-    })
-    .catch((error) => {
-      // Manejar errores aquí
-      console.error('Error:', error);
-      res.status(500).send('Internal Server Error');
-    });
-});
+router.use('/user', userRouter)
+router.use('/personalTrainer', Ptrainer)
+router.use('/asociate', asociateRouter)
 
-router.use(express.json);
+router.use(express.json)
 
-export { router };
+export { router }

@@ -14,8 +14,8 @@ const database = new Sequelize(
         native: false // lets Sequelize know we can use pg-native for ~30% more speed
     }
 )
-defineUser(database)
-definePersonalTrainer(database)
+export const User =defineUser(database)
+export const PersonalTrainer = definePersonalTrainer(database)
 defineRoutine(database)
 defineWeek(database)
 defineMuscle(database)
@@ -23,14 +23,13 @@ defineExercise(database)
 defineDayModule(database)
 
 export const {
-    User,
-    PersonalTrainer,
     Routine,
     Week,
     Muscle,
     Exercise,
     DayModule
 } = database.models
+
 
 export const conn = database
 const verifyConnection = async () => {
@@ -42,8 +41,10 @@ const verifyConnection = async () => {
     }
 }
 verifyConnection()
-PersonalTrainer.hasMany(User)
+
+
 User.belongsTo(PersonalTrainer)
+PersonalTrainer.hasMany(User)
 
 PersonalTrainer.hasMany(Routine)
 Routine.belongsTo(PersonalTrainer)
@@ -51,11 +52,15 @@ Routine.belongsTo(PersonalTrainer)
 User.hasMany(Routine)
 Routine.belongsTo(User)
 
-Routine.hasMany(Week)
-Week.belongsTo(Routine)
 
-Week.hasMany(DayModule)
-DayModule.belongsTo(Week)
+Routine.hasMany(DayModule)
+DayModule.belongsTo(Routine)
+
+// Routine.hasMany(Week)
+// Week.belongsTo(Routine)
+
+// Week.hasMany(DayModule)
+// DayModule.belongsTo(Week)
 
 DayModule.belongsToMany(Exercise, { through: 'Day_Exersice' })
 Exercise.belongsToMany(DayModule, { through: 'Day_Exersice' })
