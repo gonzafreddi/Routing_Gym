@@ -4,23 +4,23 @@ import defineUser from './models/User'
 import definePersonalTrainer from './models/PersonalTrainer'
 import defineRoutine from './models/Routine'
 import defineWeek from './models/Week'
-import defineMuscle from './models/Muscle'
+import { defineMuscle } from './models/Muscle'
 import defineExercise from './models/Exersice'
 import defineDayModule from './models/DayModule'
-const database = new Sequelize(
+export const sequelize = new Sequelize(
     'postgresql://postgres:Cb1AF6b25B45-faG3EAd1666E-6BCCcC@monorail.proxy.rlwy.net:34963/railway',
     {
         logging: false, // set to console.log to see the raw SQL queries
         native: false // lets Sequelize know we can use pg-native for ~30% more speed
     }
 )
-export const User =defineUser(database)
-export const PersonalTrainer = definePersonalTrainer(database)
-defineRoutine(database)
-defineWeek(database)
-defineMuscle(database)
-defineExercise(database)
-defineDayModule(database)
+export const User =defineUser(sequelize)
+export const PersonalTrainer = definePersonalTrainer(sequelize)
+defineRoutine(sequelize)
+defineWeek(sequelize)
+defineMuscle(sequelize)
+defineExercise(sequelize)
+defineDayModule(sequelize)
 
 export const {
     Routine,
@@ -28,14 +28,14 @@ export const {
     Muscle,
     Exercise,
     DayModule
-} = database.models
+} = sequelize.models
 
 
-export const conn = database
+export const conn = sequelize
 const verifyConnection = async () => {
     try {
-        await database.authenticate()
-        console.log('exit in the connection on database')
+        await sequelize.authenticate()
+        console.log('exit in the connection on sequelize')
     } catch (error) {
         console.log(error)
     }
