@@ -1,8 +1,8 @@
 // esModule.js
 
-import { DataTypes, UUIDV4, REAL } from 'sequelize'
+import { DataTypes, UUIDV4, REAL, Sequelize } from 'sequelize'
 
-const defineRoutine = (sequelize) => {
+const defineRoutine = (sequelize:Sequelize) => {
     const Routine = sequelize.define('Routine', {
         id: {
             type: DataTypes.UUID,

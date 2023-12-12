@@ -1,9 +1,9 @@
 // esModule.js
 
-import { DataTypes, UUIDV4 } from 'sequelize'
+import { DataTypes, Sequelize, UUIDV4 } from 'sequelize'
 
 // Define el modelo 'Week'
-const defineWeek = (sequelize) => {
+const defineWeek = (sequelize:Sequelize) => {
     const Week = sequelize.define('Week', {
         id: {
             type: DataTypes.UUID,
