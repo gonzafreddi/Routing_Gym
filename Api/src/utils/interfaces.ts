@@ -6,12 +6,13 @@ export interface UserInterface {
     email:string,
     photo?:string,  
     description?:string, 
-    gender:'women' | 'man', 
+    gender: 'women' | 'man', 
     age:number, 
     height:number,
     PersonalTrainerId?: string | null;
 }
 
 export interface PTrainerInterface extends Omit<UserInterface, 'height'> {
-    certificates: string[]
+    certificates: string[],
+    gender: 'women' | 'man'
 }
