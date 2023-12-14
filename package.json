@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "reflect-metadata": "^0.1.14",
-    "sequelize": "^6.11.0",
-    "sequelize-typescript": "^2.0.0"
-  }
-}
