@@ -1,4 +1,4 @@
-import { Exercise } from '../db'
+import { Exercise} from '../db'
 import { Op } from 'sequelize'
 import { getMuscleByName } from './MuscleCotrollers'
 
@@ -18,25 +18,15 @@ export const postExerciseController = async (name, image, description, muscles) 
         return error.message
     }
 }
-
-
 export const getExerciseByNameController = async(name) => {
-    
     const result = await Exercise.findAll({
         where: {
             name: {
                 [Op.iLike]: `%${name}%`
-            },
+            }, 
         },
-       
     })
     return result
-    
 }
 
-export const getAllExerciseController = async()=> {
-
-    const result = await Exercise.findAll()
-    return result
-
-}
+export const getAllExerciseController = async ()=> await Exercise.findAll()
