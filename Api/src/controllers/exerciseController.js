@@ -4,14 +4,18 @@ import { getMuscleByName } from './MuscleCotrollers'
 
 export const postExerciseController = async (name, image, description, muscles) => {
     try {
-        const newExercise = await Exercise.create({ name, image, description })
+        
         if (muscles) {
-            console.log('entrp en el if')
-            const muscleInstances = await getMuscleByName(muscles)
-            console.log(muscleInstances)
-            await newExercise.addMuscle(muscleInstances)    
+            const newExercise = await Exercise.create({ name, image, description })
+            const muscleAdds = await muscles.forEach(async element => {
+                let muscleName = await getMuscleByName(element)
+                await newExercise.addMuscle(muscleName)
+                console.log('log de los musculos names ', muscleName)
+            })
+            console.log('log de los musculos',muscleAdds)
+            return newExercise
         }
-        return newExercise
+        
     } catch (error) {
         console.log('error en el controlador ' , error)
         return `error in the controller ${error.message}`
