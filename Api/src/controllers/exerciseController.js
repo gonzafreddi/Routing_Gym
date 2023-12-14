@@ -23,7 +23,7 @@ export const getExerciseByNameController = async(name) => {
         where: {
             name: {
                 [Op.iLike]: `%${name}%`
-            },
+            }, 
         },
     })
     return result
