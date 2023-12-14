@@ -107,6 +107,6 @@
     "skipLibCheck": true ,                                /* Skip type checking all .d.ts files. */
 },
   // tsconfig.json
-  "include": ["src/**/*.ts", "src/models/User.js", "src/controllers/exerciseController.js"]
+  "include": ["src/**/*.ts", "src/models/User.js", "src/controllers/exerciseController.js", "src/controllers/RoutineController.js"]
 }
 

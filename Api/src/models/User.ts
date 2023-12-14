@@ -47,13 +47,13 @@ const defineUser = (sequelize: Sequelize) => {
             allowNull: true,
         },
         height: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.REAL,
             allowNull: false,
         },
-        PersonalTrainerId: {
-            type: DataTypes.UUID,
-            allowNull: true,
-        },
+        //PersonalTrainerId: {
+        //type: DataTypes.UUID,
+        //allowNull: true,
+        //},
     })
 
 
