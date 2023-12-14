@@ -1,43 +1,32 @@
-import { Exercise, Muscle} from '../db'
+import { Exercise} from '../db'
 import { Op } from 'sequelize'
 import { getMuscleByName } from './MuscleCotrollers'
 
 export const postExerciseController = async (name, image, description, muscles) => {
     try {
-        const newExercise = await Exercise.create({ name, image, description })
         if (muscles) {
-            console.log('entrp en el if')
-            const muscleInstances = await getMuscleByName(muscles)
-            console.log(muscleInstances)
-            await newExercise.addMuscle(muscleInstances)    
+            const newExercise = await Exercise.create({ name, image, description })
+            await muscles.forEach(async element => {
+                let muscleName = await getMuscleByName(element)
+                await newExercise.addMuscle(muscleName)
+            })
+            return 'Exercise created succesfully'
+        }else{
+            return 'must add at least one muscle'
         }
-        return newExercise
     } catch (error) {
-        console.log('error en el controlador ' , error)
-        return `error in the controller ${error.message}`
-    }    
-    
-
+        return error.message
+    }
 }
-
-
 export const getExerciseByNameController = async(name) => {
-    
     const result = await Exercise.findAll({
         where: {
             name: {
                 [Op.iLike]: `%${name}%`
-            },
+            }, 
         },
-       
     })
     return result
-    
 }
 
-export const getAllExerciseController = async()=> {
-
-    const result = await Exercise.findAll()
-    return result
-
-}
+export const getAllExerciseController = async ()=> await Exercise.findAll()

@@ -1,4 +1,6 @@
+
 import { Muscle } from '../db'
+
 
 export const postMuscleController= async(name:string, image:string, description:string)=>{
     try {
@@ -14,20 +16,26 @@ export const postMuscleController= async(name:string, image:string, description:
         })
         return `muscle creado con exito ${newMuscle}`
     } catch (error) {
-        console.log(error)
+        if( error instanceof Error){
+            return error.message
+        }else{
+            'Error in the postMuscleController'
+        }
     }
 }
 
 export const getMuscleByName = async(name:string)=>{
     try {
-        console.log(name, 'soy el log del get muscle')
         const response = await Muscle.findOne({where:{
             name: name
         }})
-        console.log(response, 'esta es la response del musculo')
         return response
     } catch (error) {
-        console.log(`error al buscar el musculo ${error}`)
+        if(error instanceof Error){
+            return error.message
+        }else{
+            'Error on search muscle by name'
+        }
     }
 }
 

@@ -6,7 +6,7 @@ import cors from 'cors'
 import { router } from './routes'
 import { conn } from './db'
 
-interface CustomError extends Error {
+ interface CustomError extends Error {
   status?: number // defino status en error por defecto no viene
 }
 
