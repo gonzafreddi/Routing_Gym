@@ -1,13 +1,14 @@
-import { createStore, applyMiddleware, compose, Store } from "redux";
-import  { thunk, ThunkMiddleware } from "redux-thunk";
-import rootReducer, { RootState } from "./reducers";
+import { createStore, applyMiddleware, compose, Store, combineReducers } from "redux";
+import thunk, { ThunkMiddleware } from "redux-thunk";
+import * as reducers from "./reducers"; // Importa todos tus reductores aquí
 
-// Tipos de acción si los tienes definidos
-// type AppThunk<ReturnType = void> = ThunkAction<ReturnType, RootState, unknown, Action<string>>;
+// Ahora, si 'reducers.ts' exporta 'RootState', puedes importarlo de la siguiente manera
+import { RootState } from "./reducers"; // Asegúrate de que 'RootState' esté exportado correctamente en 'reducers.ts'
 
 const composeEnhancer = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-// Se especifica el tipo del store
+const rootReducer = combineReducers(reducers); // Combina tus reductores aquí
+
 const store: Store<RootState> = createStore(
   rootReducer,
   composeEnhancer(applyMiddleware(thunk as ThunkMiddleware<RootState>))

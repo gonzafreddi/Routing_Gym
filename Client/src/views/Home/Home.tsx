@@ -8,9 +8,19 @@ interface HomeProps {
 const Home: React.FC<HomeProps> = () => {
   return (
 
-<div className='home'>
-<p> Acá iría el calendar</p>
-</div>
+    <div className='home'>
+
+      <div className='client-list'>
+    <p> Acá iría la lista de clientes</p>
+      </div>
+
+      <div className='calendar'>
+    <p> Acá iría el calendar</p>
+      </div>
+
+
+
+    </div>
   );
 };
 
