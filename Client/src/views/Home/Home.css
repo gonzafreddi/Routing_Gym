@@ -1,5 +1,5 @@
 .home{
-    margin-top: 5rem;
+    margin-top: 6rem;
     margin-bottom: 5rem;
     padding-left: 3rem;
     padding-right: 3rem;
@@ -18,4 +18,5 @@
 .calendar{
     display: flex;
     align-items: center;
+    margin-left: 7rem;
 }

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import "./Home.css";
+import MyCalendar from '../../components/Calendar/Calendar';
 
 interface HomeProps {
   // Si tu componente recibe props, define su tipo aquí
@@ -15,7 +16,8 @@ const Home: React.FC<HomeProps> = () => {
       </div>
 
       <div className='calendar'>
-    <p> Acá iría el calendar</p>
+
+    <MyCalendar/>
       </div>
 
 
