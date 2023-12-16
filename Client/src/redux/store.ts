@@ -1,5 +1,5 @@
 import { createStore, applyMiddleware, compose, Store, combineReducers } from "redux";
-import thunk, { ThunkMiddleware } from "redux-thunk";
+import { thunk,  ThunkMiddleware } from "redux-thunk";
 import * as reducers from "./reducers"; // Importa todos tus reductores aquí
 
 // Ahora, si 'reducers.ts' exporta 'RootState', puedes importarlo de la siguiente manera
