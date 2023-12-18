@@ -1,6 +1,22 @@
 .home{
-    margin-top: 10rem;
-    margin-bottom: 10rem;
+    margin-top: 6rem;
+    margin-bottom: 5rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
     display: flex;
    align-items: center;
+}
+
+.client-list{
+    background-color: #dbd5d5;
+    padding-top: 10rem;
+    padding-bottom: 15rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.calendar{
+    display: flex;
+    align-items: center;
+    margin-left: 7rem;
 }

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import "./Home.css";
+import MyCalendar from '../../components/Calendar/Calendar';
 
 interface HomeProps {
   // Si tu componente recibe props, define su tipo aquí
@@ -8,9 +9,20 @@ interface HomeProps {
 const Home: React.FC<HomeProps> = () => {
   return (
 
-<div className='home'>
-<p> Acá iría el calendar</p>
-</div>
+    <div className='home'>
+
+      <div className='client-list'>
+    <p> Acá iría la lista de clientes</p>
+      </div>
+
+      <div className='calendar'>
+
+    <MyCalendar/>
+      </div>
+
+
+
+    </div>
   );
 };
 

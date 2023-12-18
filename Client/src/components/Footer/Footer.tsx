@@ -8,6 +8,8 @@ interface FooterProps {
 const Footer: React.FC<FooterProps> = () => {
   return (
     <div className='footer'>
+
+      <div className='footer-inner'>
       <div >
         <p>Seguinos en nuestras redes</p>
       </div>
@@ -20,6 +22,7 @@ const Footer: React.FC<FooterProps> = () => {
 
      <span>Todos los derechos reservados</span>
      
+     </div>
     </div>
   );
 };
