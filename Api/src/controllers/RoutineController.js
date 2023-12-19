@@ -4,14 +4,14 @@ import { getIdTrainerByEmail } from './PtrainerControler'
 import { getIdByEmail } from './UserController'
 
 
-export const postRoutineController = async (description, objetive, target_time, initial_weight, actual_weight, target_weight, emailPersonalTrainer, emailUser) => {
+export const postRoutineController = async (name, description, objetive, target_time, initial_weight, actual_weight, target_weight, emailPersonalTrainer, emailUser) => {
     try {
         //console.log('Entre a RoutineController')
         const PersonalTrainerId = await getIdTrainerByEmail(emailPersonalTrainer)
         //console.log('idPersonalTrainer', PersonalTrainerId)
         const UserId = await getIdByEmail(emailUser)
         //console.log('idUser', UserId)
-        const newRoutine = await Routine.create({ description, objetive, target_time, initial_weight, actual_weight, target_weight, PersonalTrainerId, UserId})
+        const newRoutine = await Routine.create({ name, description, objetive, target_time, initial_weight, actual_weight, target_weight, PersonalTrainerId, UserId})
        
         return newRoutine
     } catch (error) {

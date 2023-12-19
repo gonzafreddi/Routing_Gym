@@ -5,10 +5,10 @@ import { postRoutineController, getRoutineByEmailController, getAllRoutineContro
 export const postRoutineHandler = async (req: Request, res: Response): Promise<void> => {
  
     try {
-        const {description, objetive, target_time, initial_weight, actual_weight, target_weight, emailPersonalTrainer, emailUser } = req.body
+        const {name,description, objetive, target_time, initial_weight, actual_weight, target_weight, emailPersonalTrainer, emailUser } = req.body
         //if (muscles) {}= req.body
         console.log('RoutineHandler',req.body)
-        const response= await postRoutineController(description, objetive, target_time, initial_weight, actual_weight, target_weight, emailPersonalTrainer, emailUser)
+        const response= await postRoutineController(name, description, objetive, target_time, initial_weight, actual_weight, target_weight, emailPersonalTrainer, emailUser)
         res.status(201).json(response)
     } catch (error) {
         console.error('Error:', error)
