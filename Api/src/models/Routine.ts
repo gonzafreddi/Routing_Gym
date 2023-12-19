@@ -9,6 +9,10 @@ const defineRoutine = (sequelize:Sequelize) => {
             primaryKey: true,
             defaultValue: UUIDV4
         },
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         description: {
             type: DataTypes.STRING,
             allowNull: false

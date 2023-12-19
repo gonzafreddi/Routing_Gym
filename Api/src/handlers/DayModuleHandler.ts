@@ -1,14 +1,13 @@
 import { Request, Response } from 'express'
-
-import { postRoutineController, getRoutineByEmailController, getAllRoutineController } from '../controllers/RoutineController'
+import { postDayModuleController, getDayModuleByEmailController, getAllDayModuleController } from '../controllers/DayModuleController'
     
-export const postRoutineHandler = async (req: Request, res: Response): Promise<void> => {
+export const postDayModuleHandler = async (req: Request, res: Response): Promise<void> => {
  
     try {
-        const {name, description, objetive, target_time, initial_weight, actual_weight, target_weight, emailPersonalTrainer } = req.body
-        //if (muscles) {}= req.body
-        console.log('RoutineHandler',req.body)
-        const response= await postRoutineController(name, description, objetive, target_time, initial_weight, actual_weight, target_weight, emailPersonalTrainer)
+        const {name, date} = req.body
+        
+        console.log('DayModuleHandler',req.body)
+        const response= await postDayModuleController(name,date)
         res.status(201).json(response)
     } catch (error) {
         console.error('Error:', error)
@@ -21,11 +20,11 @@ export const postRoutineHandler = async (req: Request, res: Response): Promise<v
     }
 
 }
-export const getRoutineHandler = async (req: Request, res: Response): Promise<void> => {
+export const getDayModuleHandler = async (req: Request, res: Response): Promise<void> => {
     
     try {
         const name: string = req.query.name as string
-        const result = name ? await getRoutineByEmailController(name) : await getAllRoutineController()
+        const result = name ? await getDayModuleByEmailController(name) : await getAllDayModuleController()
         res.status(200).json(result)
 
 

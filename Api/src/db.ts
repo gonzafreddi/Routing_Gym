@@ -49,9 +49,11 @@ User.belongsTo(PersonalTrainer)
 PersonalTrainer.hasMany(Routine)
 Routine.belongsTo(PersonalTrainer)
 
-User.hasMany(Routine)
-Routine.belongsTo(User)
+//User.hasMany(Routine)
+//Routine.belongsTo(User)
 
+Routine.hasMany(User)
+User.belongsTo(Routine)
 
 Routine.hasMany(DayModule)
 DayModule.belongsTo(Routine)

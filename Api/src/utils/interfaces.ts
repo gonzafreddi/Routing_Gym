@@ -10,6 +10,7 @@ export interface UserInterface {
     age:number, 
     height:number,
     PersonalTrainerId?: string | null;
+    RoutineId?: string | null;
 }
 
 export interface PTrainerInterface extends Omit<UserInterface, 'height'> {
