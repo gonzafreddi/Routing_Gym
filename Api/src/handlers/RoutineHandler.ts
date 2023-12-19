@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
 
-import { postRoutineController, getRoutineByEmailController, getAllRoutineController } from '../controllers/RoutineController'
+import { postRoutineController, getRoutineByNameController, getAllRoutineController } from '../controllers/RoutineController'
     
 export const postRoutineHandler = async (req: Request, res: Response): Promise<void> => {
  
@@ -25,7 +25,7 @@ export const getRoutineHandler = async (req: Request, res: Response): Promise<vo
     
     try {
         const name: string = req.query.name as string
-        const result = name ? await getRoutineByEmailController(name) : await getAllRoutineController()
+        const result = name ? await getRoutineByNameController(name) : await getAllRoutineController()
         res.status(200).json(result)
 
 

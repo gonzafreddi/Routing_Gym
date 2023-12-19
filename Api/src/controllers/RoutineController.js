@@ -23,7 +23,7 @@ export const postRoutineController = async (name, description, objetive, target_
 }
 
 
-export const getRoutineByEmailController = async(name) => {
+export const getRoutineByNameController = async(name) => {
     
     const result = await Routine.findAll({
         where: {
