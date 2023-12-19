@@ -13,12 +13,15 @@ export type Event = {
 export const useEventState = () => {
   const [events, setEvents] = useState<Event[]>([]);
   const handleSelectSlot = (slotInfo: SlotInfo) => {
-    const newEvent = {
-      title: 'hola',
-      start: slotInfo.start,
-      end: slotInfo.end,
-    };
-    setEvents([...events, newEvent]);
+    const title = prompt('ingrese el titulo del dia')
+    if(title){
+        const newEvent = {
+            title: title,
+            start: slotInfo.start,
+            end: slotInfo.end,
+          };
+          setEvents([...events, newEvent]);
+    }
   };
 
   return {
