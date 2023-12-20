@@ -1,7 +1,7 @@
 import * as React from 'react';
 import "./Home.css";
 import MyCalendar from '../../components/Calendar/Calendar';
-import Users from '../../components/UserList/Users/Users';
+import ClientUsers from '../../components/UserList/Users/Users';
 
 interface HomeProps {
   // Si tu componente recibe props, define su tipo aquí
@@ -14,7 +14,7 @@ const Home: React.FC<HomeProps> = () => {
 
       <div className='client-list'>
     <p> Acá iría la lista de clientes</p>
-    <Users/>
+    <ClientUsers/>
       </div>
 
       <div className='calendar'>

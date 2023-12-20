@@ -1,4 +1,4 @@
-import styles from "./cardUser.module.css";
+import styles from "./CardUser.module.css";
 import { useState } from "react";
 
 export function CardUser({ user, onBanOrDelete, onUnban }) {

@@ -13,6 +13,8 @@ import { conn } from './db'
 export const server = express()
 server.use(express.json())
 
+
+
 server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }))
 server.use(bodyParser.json({ limit: '50mb' }))
 server.use(cookieParser())
@@ -37,8 +39,8 @@ server.use((err: CustomError, _req: Request, res: Response, _next: NextFunction)
 })
 
 conn.sync({ alter: true }).then(() => {
-    server.listen(3000, () => {
-        console.log('Port listening at', 3000)
+    server.listen(3001, () => {
+        console.log('Port listening at', 3001)
     })
 })
     .catch(error => {
