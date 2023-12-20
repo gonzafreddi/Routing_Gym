@@ -15,9 +15,6 @@ export const getIdByEmail = async (email:string): Promise<string | null>=> {
 
 
 
-
-
-
 export const getUserByEmail=async(email:string)=>{
     const findUser = await User.findOne({
         where:{

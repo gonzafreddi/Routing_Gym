@@ -3,6 +3,19 @@ import { Op } from 'sequelize'
 import { getIdTrainerByEmail } from './PtrainerControler'
 import { getIdByEmail } from './UserController'
 
+export const getIdByNameRoutine = async (name) => {
+    const routine = await Routine.findOne({
+        where:{
+            name: name
+        }
+    })
+    if (!routine) {
+        return 'Rutina no encontrada '
+    }
+    return routine.id
+}
+
+
 
 export const postRoutineController = async (name, description, objetive, target_time, initial_weight, actual_weight, target_weight, emailPersonalTrainer, emailUser) => {
     try {
