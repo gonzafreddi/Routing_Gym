@@ -1,0 +1,42 @@
+.divConteiner{
+    width: 40vw;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.Setconteiner{
+    font-size: small;
+    width: 100%;
+
+}
+
+.titlesConteiner{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr .2fr ;
+}
+
+.titles{
+
+    text-align: center;
+}
+.inputsCont{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr .2fr;
+    justify-items: center;
+    align-items: center;
+}
+.inputs{
+    width: 80px;
+    text-align: center;
+    border: 1px solid #b4b4b486;
+    margin-bottom: 10px;
+    padding: 5px;
+
+}
+
+button{
+    background-color:white ;
+    border: none;
+}

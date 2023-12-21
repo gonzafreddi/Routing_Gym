@@ -1,0 +1,28 @@
+.conteiner{
+    border: green solid ;
+    width: 100%;
+
+}
+
+.titlesConteiner{
+    border: solid yellow;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.titles{
+
+    text-align: center;
+}
+.inputsCont{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+}
+.inputs{
+    width: 100px;
+    border: solid saddlebrown
+}
+
