@@ -54,25 +54,25 @@ export function CardUser({ user, onBanOrDelete, onUnban }) {
         </div>
         <div className={styles.text}>
           <h5>{user.name}</h5>
-          <span className={accountStatusClass}>
+          {/* <span className={accountStatusClass}>
             {accountStatus ? "Usuario Habilitado" : "Usuario Deshabilitado"}
           </span>
           <span className={adminStatusClass}>
             {accountStatus && adminStatus ? "Administrador" : null}
-          </span>
+          </span> */}
           <p>{user.email}</p>
         </div>
       </div>
       <div className={styles.contenedorLista}>
         <div className={styles.listas}>
-          <button className={styles.listaButton} onClick={toggleAccountStatus}>
+          {/* <button className={styles.listaButton} onClick={toggleAccountStatus}>
             {getAccountStatusText()}
-          </button>
+          </button> */}
         </div>
         <div className={styles.listas}>
-          <button className={styles.listaButton} onClick={toggleAdminStatus} disabled={!accountStatus}>
+          {/* <button className={styles.listaButton} onClick={toggleAdminStatus} disabled={!accountStatus}>
             {getAdminStatusText()}
-          </button>
+          </button> */}
         </div>
       </div>
     </div>

@@ -38,7 +38,7 @@ server.use((err: CustomError, _req: Request, res: Response, _next: NextFunction)
     res.status(status).send(message)
 })
 
-conn.sync({ force: true }).then(() => {
+conn.sync({ alter: true }).then(() => {
     server.listen(3001, () => {
         console.log('Port listening at', 3001)
     })
