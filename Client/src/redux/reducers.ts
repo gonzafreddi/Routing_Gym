@@ -1,30 +1,18 @@
-import { ActionTypes, GET_USERS, GET_TRAINERS } from './actions';
-import { combineReducers } from 'redux';
+import { GET_USERS, GET_TRAINERS } from "./actions";
 
-interface UsersState {
-  users: any[]; // Reemplaza 'any[]' con el tipo específico de usuario que esperas
-  usersCopy: any[]; // Reemplaza 'any[]' con el tipo específico de usuario que esperas
+interface State {
+  users: any[]; // Puedes reemplazar 'any' con un tipo específico para los usuarios
+  usersCopy: any[]; // Puedes reemplazar 'any' con un tipo específico para los usuarios
+  trainers: any[]; // Puedes reemplazar 'any' con un tipo específico para los entrenadores
 }
 
-interface TrainersState {
-  trainers: any[]; // Reemplaza 'any[]' con el tipo específico de entrenador que esperas
-}
-
-interface RootState {
-  users: UsersState;
-  trainers: TrainersState;
-}
-
-const initialUsersState: UsersState = {
+const initialState: State = {
   users: [],
   usersCopy: [],
-};
-
-const initialTrainersState: TrainersState = {
   trainers: [],
 };
 
-const usersReducer = (state: UsersState = initialUsersState, action: ActionTypes): UsersState => {
+const reducer = (state = initialState, action: { type: string; payload: any }) => {
   switch (action.type) {
     case GET_USERS:
       return {
@@ -32,13 +20,6 @@ const usersReducer = (state: UsersState = initialUsersState, action: ActionTypes
         users: [...action.payload].splice(0, 8),
         usersCopy: action.payload,
       };
-    default:
-      return state;
-  }
-};
-
-const trainersReducer = (state: TrainersState = initialTrainersState, action: ActionTypes): TrainersState => {
-  switch (action.type) {
     case GET_TRAINERS:
       return {
         ...state,
@@ -49,10 +30,39 @@ const trainersReducer = (state: TrainersState = initialTrainersState, action: Ac
   }
 };
 
-const rootReducer = combineReducers<RootState>({
-  users: usersReducer, // Asigna la función reductora usersReducer como valor para la propiedad 'users' en el estado global
-  trainers: trainersReducer,
-});
+export default reducer;
 
-export default rootReducer;
-export type { RootState };
+
+
+
+// import {
+//   GET_USERS,
+//   GET_REVIEWS
+// } from "./actions";
+
+// const initialState = {
+//   users: [],
+//   usersCopy:[],
+//   trainers: [],
+// }
+
+
+// const reducer = (state = initialState, action)=> {
+//   switch (action.type) {
+//       case GET_USERS:
+//               return {
+//                   ...state,
+//                   users: [...action.payload].splice(0, 8),
+//                   usersCopy: action.payload,
+//               };
+//       case GET_TRAINERS:
+//               return {
+//                   ...state,
+//                   trainers: action.payload
+//               };
+//               default:
+//                 return state;
+// }
+// };
+
+// export default reducer;
