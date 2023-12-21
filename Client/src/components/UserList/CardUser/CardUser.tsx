@@ -60,7 +60,7 @@ export function CardUser({ user, onBanOrDelete, onUnban }) {
           <span className={adminStatusClass}>
             {accountStatus && adminStatus ? "Administrador" : null}
           </span> */}
-          <p>{user.email}</p>
+          <p className={styles.email}>{user.email}</p>
         </div>
       </div>
       <div className={styles.contenedorLista}>

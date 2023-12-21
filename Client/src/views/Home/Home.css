@@ -9,10 +9,11 @@
 
 .client-list{
     background-color: #dbd5d5;
-    padding-top: 10rem;
-    padding-bottom: 15rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    /* padding-left: 1rem;
+    padding-right: 1rem; */
+    border-radius: 20px;
 }
 
 .calendar{

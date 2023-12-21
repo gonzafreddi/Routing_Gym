@@ -9,11 +9,11 @@
 
 .searchInput {
     font-family: 'DM Sans', sans-serif;
-    width: 40rem;
+    width: 20rem;
     height: 2.5rem;
     border: 0px;
     padding: 15px;
-    font-size: 14px;
+    font-size: .8rem;
     font-weight: 500;
     border-radius: 0.75rem;
     background-color: #e2e2e2;

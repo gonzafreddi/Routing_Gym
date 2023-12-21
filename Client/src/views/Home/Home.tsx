@@ -13,7 +13,6 @@ const Home: React.FC<HomeProps> = () => {
     <div className='home'>
 
       <div className='client-list'>
-    <p> Acá iría la lista de clientes</p>
     <ClientUsers/>
       </div>
 

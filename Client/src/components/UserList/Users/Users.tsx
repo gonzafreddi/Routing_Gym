@@ -66,7 +66,7 @@ const ClientUsers: React.FC = () => {
   return (
     <div className={styles.container}>
       <div className={styles.cards}>
-        <h1>Usuarios</h1>
+        <h1 className={styles.userTitle}>Usuarios</h1>
         <UsersSB handleInputChange={handleInputChange} placeholder={"Busca usuarios por id, nombre o email"} />
         <div className={styles.cardCont}>
           {displayedData.map((user: User) => (
