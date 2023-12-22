@@ -4,10 +4,10 @@ import { postDayModuleController, getDayModuleByNameController, getAllDayModuleC
 export const postDayModuleHandler = async (req: Request, res: Response): Promise<void> => {
  
     try {
-        const {name,date,nameRoutine} = req.body
+        const {name,date,nameRoutine,nameExercise,series,repetitons,breakTime} = req.body
         
         console.log('DayModuleHandler',req.body)
-        const response= await postDayModuleController(name,date,nameRoutine)
+        const response= await postDayModuleController(name,date,nameRoutine,nameExercise,series,repetitons,breakTime)
         res.status(201).json(response)
     } catch (error) {
         console.error('Error:', error)

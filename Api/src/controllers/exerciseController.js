@@ -2,6 +2,21 @@ import { Exercise} from '../db'
 import { Op } from 'sequelize'
 import { getMuscleByName } from './MuscleCotrollers'
 
+export const getIdByNameExercise = async (name) => {
+    const exercise = await Exercise.findOne({
+        where:{
+            name: name
+        }
+    })
+    if (!exercise) {
+        return 'Rutina no encontrada '
+    }
+    return exercise.id
+}
+
+
+
+
 export const postExerciseController = async (name, image, description, muscles) => {
     try {
         if (muscles) {

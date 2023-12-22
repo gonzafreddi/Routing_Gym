@@ -1,11 +1,14 @@
+// esModule.js
+
 // Importa los módulos necesarios de Sequelize y define la conexión
 import { DataTypes, Model, Sequelize } from 'sequelize'
 
 // Define el modelo para la tabla intermedia
 class DayExercise extends Model {
    
-    public additionalField1!: string
-    public additionalField2!: number
+    public series!: number
+    public repetitons!: number
+    public breakTime!: string
 }
 
 // Inicializa el modelo con Sequelize
@@ -30,9 +33,10 @@ export const initDayExercise = (sequelize: Sequelize) => {
         {
             sequelize,
             modelName: 'DayExercise',
-            tableName: 'Day_Exercise',
+            tableName: 'DayExercise',
         }
     )
 
     return DayExercise
 }
+export default initDayExercise

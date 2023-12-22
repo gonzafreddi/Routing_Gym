@@ -7,6 +7,9 @@ import defineWeek from './models/Week'
 import { defineMuscle } from './models/Muscle'
 import defineExercise from './models/Exersice'
 import defineDayModule from './models/DayModule'
+import  initDayExercise  from './models/initDayExercise'
+
+
 export const sequelize = new Sequelize(
     'postgresql://postgres:Cb1AF6b25B45-faG3EAd1666E-6BCCcC@monorail.proxy.rlwy.net:34963/railway',
     {
@@ -21,6 +24,7 @@ defineWeek(sequelize)
 defineMuscle(sequelize)
 defineExercise(sequelize)
 defineDayModule(sequelize)
+
 
 export const {
     Routine,
@@ -62,18 +66,21 @@ DayModule.belongsTo(Routine)
 // Week.hasMany(DayModule)
 // DayModule.belongsTo(Week)
 // Importa los modelos necesarios y el modelo recién creado
-import { initDayExercise } from './models/initDayExercise'
-const DayExersice = initDayExercise(sequelize)
+
+
 
 // Define las relaciones
-DayModule.belongsToMany(Exercise, {
-    through: DayExersice,
-    foreignKey: 'dayModuleId',
-})
-Exercise.belongsToMany(DayModule, {
-    through: DayExersice,
-    foreignKey: 'exerciseId',
-})
+// DayModule.belongsToMany(Exercise, {
+//     through: DayExersice,
+//     foreignKey: 'dayModuleId',
+// })
+// Exercise.belongsToMany(DayModule, {
+//     through: DayExersice,
+//     foreignKey: 'exerciseId',
+// })
+export const DayExercise = initDayExercise(sequelize)
+DayModule.belongsToMany(Exercise, { through: 'DayExercise', foreignKey: 'dayModuleId' })
+Exercise.belongsToMany(DayModule, { through: 'DayExercise', foreignKey: 'exerciseId'})
 
 Muscle.belongsToMany(Exercise, { through: 'Muscle_Exercise' })
 Exercise.belongsToMany(Muscle, { through: 'Muscle_Exercise' })
